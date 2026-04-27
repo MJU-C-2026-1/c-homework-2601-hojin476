@@ -78,7 +78,35 @@ if (benchpress > 0 && squat > 0)
   printf("\n추가 확인 메뉴 (1: 상세 기록, 2: 조언 보기, 3: 종료) : ");
   scanf("%d", &choice);
   
+  switch (choice)
+  {
+    case 1:
+      printf("\n--- 상세 기록 ---\n");
+      printf("%c님의 오늘 운동량: %.1fkg\n", user_name, total_volume);
+      break;
+
+    case 2:
+      printf("\n[오늘의 팁]\n");
+      if (ratio < 1.0)
+        printf("기초 체력을 더 키워보세요!\n");
+      else
+        printf("정말 대단한 운동량입니다!\n");
+      break;
+
+    case 3:
+        printf("프로그램을 종료합니다.\n");
+        break;
+    default:
+        printf("잘못된 번호입니다.\n");
+        break;
+  }
 }
+    //벤치프레스, 스쿼트 값이 0보다 작을 때
+else
+{
+  printf("입력값이 잘못되었습니다. 0보다 큰 값을 입력하세요.\n");
+}
+
 
 /*
 //3 산술 연산
