@@ -86,7 +86,8 @@
      
 ### **📁 증빙 자료:**
   * [[C언어 제미나이 협업 과정 2차.pdf](https://github.com/user-attachments/files/27126907/C.2.pdf)] (첨부 후 링크)
-  * [<img width="1472" height="747" alt="2차 과제 실행 결과" src="https://github.com/user-attachments/assets/1731af63-6ae9-40ac-a2ee-0ce18c932621" />]
+    [2차과제_실행결과.jpg]
+    <img width="1472" height="747" alt="2차 과제 실행 결과" src="https://github.com/user-attachments/assets/1731af63-6ae9-40ac-a2ee-0ce18c932621" />
 <br>
 
 ## 🟨 [3차 과제: V3.0] 무한 루프와 메뉴 시스템 (반복문) - 향후 작성 예정
