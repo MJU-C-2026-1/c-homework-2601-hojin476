@@ -152,10 +152,6 @@ double calculate_gap(int goal, double total)
 // 체중 대비 중량비를 계산하여 등급 판별
 int check_grade(double body_w)
 {
-  if (body_w <= 0)
-  {
-    return (0); // 몸무게가 0 이하면 계산을 안 함
-  }
 
   double ratio = total_volume / body_w;
   printf("현재 몸무게 대비 중량비 : %.2f\n", ratio);
