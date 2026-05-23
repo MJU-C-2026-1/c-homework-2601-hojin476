@@ -106,7 +106,7 @@
      * **해결:** 에러 메시지가 가리키는 라인을 추적하여 choice == 2 블록 내부의 인덴트(들여쓰기)를 줄 단위로 정렬하고, 열린 괄호와 닫힌 괄호의 쌍을 1:1로 정확하게 매칭시켜 컴파일 에러를 해결함.
      
 ### **📁 증빙 자료:**
-  * [[C언어 제미나이 협업 과정 3차.pdf](https://github.com/user-attachments/files/28174911/C.3.pdf)] (첨부 후 링크)
+  * [[C언어 제미나이 협업 과정 3차.pdf](https://github.com/user-attachments/files/28174983/C.3.pdf)] (첨부 후 링크)
   * [<img width="1070" height="882" alt="3차 과제 실행 결과" src="https://github.com/user-attachments/assets/6ae3c6fc-f5c7-4d30-a3b8-993f32559271" />]
 <br>
 
