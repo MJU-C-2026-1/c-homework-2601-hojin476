@@ -28,6 +28,7 @@ int main()
   int goal_weight;
   double body_weight;
   double gap = 0.0;
+  double history_total = 0.0;
 
   printf("=====================================\n");
   printf("\t오운완 기록기 v4.0\n");
@@ -80,37 +81,43 @@ int main()
     }
     else if (choice == 2)
     {
-        // 분석 및 등급 확인
-        printf("\n---현재 상태 분석---\n");
-        printf("현재까지 기록된 총 중량 : %.1fkg\n", total_volume);
-
-        // return 문이 있는 함수 호출
-        check_grade(body_weight);
-
-        // 매개변수 (goal_weight, total_volume)를 전달하는 함수 호출
-        gap = calculate_gap(goal_weight, total_volume);
-
-        if (total_volume >= goal_weight)
-        {
-          printf("대단합니다! 목표 중량을 달성했습니다!\n");
-        }
-        else
-        {
-          printf("목표까지 %.1fkg 남았습니다. 조금만 더 힘내세요!\n", gap);
-        }
+      record_history_ptr(workout_history);
     }  
       else if (choice == 3)
-      {
-        // 종료 메뉴를 선택할 때 break
-        printf("프로그램을 종료합니다. 오늘도 득근하세요!\n");
-        break;
-      }
+    {
+      print_history_index();
+    }
+    else if (choice == 4)
+    {
+      printf("\n---현재 상태 분석---\n");
+			printf("오늘 기록된 당일 총 중량 : %.1fkg\n", total_volume);
+
+      check_grade(body_weight);
+
+      gap = calculate_gap(goal_weight, total_volume);
+
+			if (total_volume >= goal_weight)
+			{
+				printf("대단합니다! 오늘 목표 중량을 달성했습니다!\n");
+			}
+			else
+			{
+				printf("오늘 목표까지 %.1fkg 남았습니다. 조금만 더 힘내세요!\n", gap);
+			}
+			
+			history_total = calculate_history_total(workout_history);
+			printf("\n [5일 누적 데이터 분석] 총 누적 중량 : %.1fkg (목표: %dkg)\n", history_total, goal_weight * 5);
+    }
+    else if (choice == 5)
+    {
+      printf("프로그램을 종료합니다. 오늘도 득근하세요!\n");
+      break;
+    }
     else
     {
-      printf("잘못된 번호입니다. 1~3번 중에서 선택하세요.\n");
-    }      
+      printf("잘못된 번호입니다. 1~5번 중에서 선택하세요.\n");
+    }
   }
-  
   return 0;
 }
 
@@ -122,7 +129,7 @@ void display_menu()
   printf("2. 5일간의 운동 무게 기록/변경\n");
   printf("3. 5일간 운동 기록 리스트 조회\n");
   printf("4. 현재 총합 중량 및 등급 분석\n");
-  pritnf("5. 프로그램 종료\n");
+  printf("5. 프로그램 종료\n");
   printf("=========================================\n");
 }
 
@@ -181,3 +188,40 @@ int check_grade(double body_w)
   return 1; // 정상적으로 등급 출력을 완료했음을 의미하는 1 반환
 }
 
+void record_history_ptr(double *ptr)
+{
+  printf("\n 5일간의 기록 변경 로직이 실행됩니다...\n");
+  printf("--- 최근 5일간의 중량(kg) 입력 ---\n");
+
+  for (int i = 0; i < 5; i++)
+  {
+    printf("%d일차 총 중량 입력 : ", i+1);
+    scanf("%lf", (ptr + i));
+  }
+  printf("5일간의 데이터가 성공적으로 변경되었습니다. \n");
+  printf("메인 메뉴로 돌아갑니다.\n");
+}
+
+void print_history_index()
+{
+  printf("\n 5일 기록 리스트 조회 로직이 실행됩니다...\n");
+  printf("--- 최근 5일간의 운동 기록 리스트 ---\n");
+
+  for (int i = 0; i <5; i++)
+  {
+    printf("[%d일차 기록] : %.1f kg \n", i + 1, workout_history[i]);
+  }
+  printf("----------------------------------------------------\n");
+  printf("메인 메뉴로 돌아갑니다.\n");
+}
+
+double calculate_history_total (double arr[])
+{
+  double sum = 0.0;
+
+  for (int i = 0; i < 5; i++)
+  {
+    sum += arr[i];
+  }
+  return sum;
+}
